@@ -1,0 +1,70 @@
+:host {
+	--ink: #172536;
+	--muted: #82909b;
+	--navy: #17384a;
+	--navy-light: #22576a;
+	--teal: #2cb7a9;
+	--coral: #f47d6d;
+	--gold: #f5c76b;
+	display: block;
+	min-height: 100vh;
+	color: var(--ink);
+	font-family: 'DM Sans', sans-serif;
+}
+
+.app-shell { display: flex; min-height: 100vh; background: #f5f8f9; }
+.side-nav { display: flex; flex: 0 0 270px; flex-direction: column; min-height: 100vh; padding: 2rem 1.25rem 1.5rem; color: rgba(255, 255, 255, 0.72); background: var(--navy); }
+.brand-lockup { display: flex; align-items: center; gap: 0.8rem; padding: 0 0.85rem 2.9rem; color: #fff; }
+.brand-lockup strong, .brand-lockup span, .user-details strong, .user-details span, .help-card strong, .help-card span { display: block; }
+.brand-lockup strong { font: 700 1.08rem 'Space Grotesk', sans-serif; letter-spacing: 0; }
+.brand-lockup > div:last-child span { margin-top: 0.2rem; color: #87cfc7; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.brand-mark { display: flex; align-items: end; gap: 3px; width: 29px; height: 29px; }
+.brand-mark span { display: block; width: 7px; border-radius: 5px 5px 2px 2px; background: var(--teal); }
+.brand-mark span:nth-child(1) { height: 15px; }
+.brand-mark span:nth-child(2) { height: 26px; background: var(--coral); }
+.brand-mark span:nth-child(3) { height: 20px; background: var(--gold); }
+.nav-section-label { margin: 0 0 0.7rem 0.85rem; color: rgba(255, 255, 255, 0.36); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+.nav-links { display: grid; gap: 0.25rem; }
+.nav-link { display: flex; align-items: center; gap: 0.85rem; min-height: 45px; padding: 0 0.85rem; border-radius: 4px; color: inherit; font-size: 0.84rem; text-decoration: none; transition: color 160ms ease, background 160ms ease, transform 160ms ease; }
+.nav-link:hover { color: #fff; background: rgba(255, 255, 255, 0.08); transform: translateX(3px); }
+.nav-link.active { color: #fff; background: var(--navy-light); box-shadow: inset 3px 0 var(--teal); }
+.nav-icon { display: grid; width: 20px; place-items: center; color: #79cfc5; font-size: 1.1rem; }
+.nav-link.active .nav-icon { color: var(--gold); }
+.nav-divider { height: 1px; margin: 2rem 0 1.7rem; background: rgba(255, 255, 255, 0.1); }
+.nav-bottom { margin-top: auto; }
+.help-card { display: flex; align-items: center; gap: 0.65rem; margin: 0 0.25rem 1.5rem; padding: 0.9rem; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 5px; background: rgba(255, 255, 255, 0.045); }
+.help-spark { display: grid; flex: 0 0 25px; width: 25px; height: 25px; place-items: center; border-radius: 50%; color: var(--navy); background: var(--gold); font-weight: 700; }
+.help-card strong { color: #fff; font-size: 0.72rem; }
+.help-card div span { margin-top: 0.2rem; color: rgba(255, 255, 255, 0.48); font-size: 0.62rem; }
+.help-arrow { margin-left: auto; color: var(--teal); font-size: 1rem; }
+.user-profile { display: flex; align-items: center; gap: 0.7rem; padding: 1.15rem 0.5rem 0; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.avatar { display: grid; flex: 0 0 37px; width: 37px; height: 37px; place-items: center; border-radius: 50%; color: var(--navy); background: var(--gold); font: 700 0.72rem 'Space Grotesk', sans-serif; }
+.user-details { min-width: 0; }
+.user-details strong { overflow: hidden; color: #fff; font-size: 0.78rem; text-overflow: ellipsis; white-space: nowrap; }
+.user-details span { margin-top: 0.2rem; color: rgba(255, 255, 255, 0.48); font-size: 0.65rem; }
+.logout-button { display: grid; flex: 0 0 31px; width: 31px; height: 31px; place-items: center; margin-left: auto; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; color: var(--coral); background: transparent; font-size: 1.1rem; cursor: pointer; transition: background 160ms ease, color 160ms ease; }
+.logout-button:hover { color: #fff; background: var(--coral); }
+.main-content { flex: 1; min-width: 0; padding: clamp(2rem, 4vw, 4.5rem); }
+.content-header { display: flex; align-items: end; justify-content: space-between; max-width: 1180px; margin: 0 auto 2.5rem; }
+.content-kicker { margin: 0 0 0.6rem; color: var(--teal); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.content-header h1 { margin: 0; font: 600 clamp(1.7rem, 3vw, 2.65rem)/1.1 'Space Grotesk', sans-serif; }
+.content-header h1 span { color: var(--coral); font-size: 0.7em; }
+.header-status { display: flex; align-items: center; gap: 0.45rem; color: var(--muted); font-size: 0.72rem; }
+.header-status span { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 4px rgba(44, 183, 169, 0.13); }
+.page-frame { max-width: 1180px; min-height: 430px; margin: 0 auto; padding: clamp(1.25rem, 3vw, 2.2rem); border: 1px solid #e2e9ec; border-radius: 6px; background: #fff; box-shadow: 0 18px 45px rgba(23, 56, 74, 0.05); }
+
+@media (max-width: 760px) {
+	.app-shell { display: block; }
+	.side-nav { min-height: auto; padding: 1rem; }
+	.brand-lockup { padding: 0.3rem 0.5rem 1.2rem; }
+	.nav-section-label, .nav-divider, .help-card { display: none; }
+	.nav-links { display: flex; gap: 0.25rem; overflow-x: auto; padding-bottom: 0.3rem; }
+	.nav-link { flex: 0 0 auto; min-height: 39px; padding: 0 0.7rem; font-size: 0.75rem; }
+	.nav-icon { width: auto; font-size: 0.95rem; }
+	.nav-bottom { margin-top: 1rem; }
+	.user-profile { padding: 0.8rem 0.5rem 0; }
+	.main-content { padding: 2rem 1rem; }
+	.content-header { align-items: start; gap: 1rem; margin-bottom: 1.5rem; }
+	.header-status { padding-top: 0.25rem; white-space: nowrap; }
+	.page-frame { min-height: 300px; padding: 1rem; }
+}
