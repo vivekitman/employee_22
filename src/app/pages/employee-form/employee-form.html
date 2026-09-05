@@ -1,1 +1,184 @@
-<p>employee-form works!</p>
+<div class="employee-page">
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div>
+      <h2>Add Employee</h2>
+      <p>Enter employee details to create a new record</p>
+    </div>
+
+    <button class="back-btn">
+      <span>←</span> Back to Employees
+    </button>
+  </div>
+
+
+  <!-- Form Card -->
+  <div class="form-card">
+
+    <!-- Form Header -->
+    <div class="form-header">
+      <div class="form-header-icon">
+        <span>♟</span>
+      </div>
+
+      <div>
+        <h3>Employee Information</h3>
+        <p>Basic details and account information</p>
+      </div>
+    </div>
+
+
+    <div class="form-divider"></div>
+
+
+    <!-- Employee Form -->
+    <form>
+
+      <div class="form-grid" [formGroup]="EmpFrom">
+
+        <!-- Employee Name -->
+        <div class="form-group">
+          <label>
+            Employee Name <span>*</span>
+          </label>
+
+          <input
+           formControlName="employeeName"
+            type="text"
+            placeholder="Enter employee name">
+        </div>
+
+
+        <!-- Contact Number -->
+        <div class="form-group">
+          <label>
+            Contact Number <span>*</span>
+          </label>
+
+          <input
+          formControlName="contactNo"
+            type="tel"
+            placeholder="Enter contact number">
+        </div>
+
+
+        <!-- Email -->
+        <div class="form-group">
+          <label>
+            Email Address <span>*</span>
+          </label>
+
+          <input
+          formControlName="emailId"
+            type="email"
+            placeholder="Enter email address">
+        </div>
+
+
+        <!-- Department -->
+
+        <div class="form-group">
+          <label>
+           parent  Department <span>*</span>
+          </label>
+
+          <select (change)="onDeptChange($event)"  name="id"  >
+            <option value="">Select department</option>
+            @for (item of parentDepList$ | async ; track $index){
+<option  [value] = "item.departmentId">{{item.departmentName}}</option>
+
+           }
+            
+             
+          </select>
+        </div>
+         
+
+         <div class="form-group">
+          <label>
+           Child Department <span>*</span>
+          </label>
+
+          <select >
+            <option value="">Select department</option>
+            @for (item of ChildDepList(); track $index){
+ <option [value]="item.childDeptId">{{item.departmentName}}</option>
+
+            }
+            
+          </select>
+        </div>
+
+
+        <!-- Password -->
+        <div class="form-group">
+          <label>
+            Password <span>*</span>
+          </label>
+
+          <input
+          formControlName="password"
+            type="password"
+            placeholder="Enter password">
+        </div>
+
+
+        <!-- Gender -->
+        <div class="form-group">
+          <label>
+            Gender <span>*</span>
+          </label>
+
+          <select  formControlName="gender" >
+            <option value="">Select gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+
+        <!-- Role -->
+        <div class="form-group">
+          <label>
+            Role <span>*</span>
+          </label>
+
+          <select formControlName="role">
+            <option value="">Select role</option>
+            <option value="Admin">Admin</option>
+            <option value="HR Manager">HR Manager</option>
+            <option value="Developer">Developer</option>
+            <option value="Accountant">Accountant</option>
+            <option value="Manager">Manager</option>
+          </select>
+        </div>
+
+      </div>
+
+
+      <!-- Footer -->
+      <div class="form-divider"></div>
+
+      <div class="form-footer">
+
+        <button
+          type="button"
+          class="cancel-btn">
+          Cancel
+        </button>
+
+        <button
+          type="submit" (click)="OnSaveEmp()"
+          class="save-btn">
+          <span>✓</span> Save Employee
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

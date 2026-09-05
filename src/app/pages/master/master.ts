@@ -14,6 +14,7 @@ export class Master implements OnInit  {
   masterSr = inject(MasterServices)
   parentDepartments = signal<IpaerntDeperModerl[]>([])
   chaildDepartment = signal<IchilddepartModel[]>([])
+  originalChildList : IchilddepartModel[]=[];
 
  
 
@@ -28,6 +29,7 @@ export class Master implements OnInit  {
      getChildDepartments() {
     this.masterSr.getChildDepartments().subscribe( {
       next:(res: UserResponse) => {
+        this.originalChildList=res.data;
         this.chaildDepartment.set(res.data)
       }
     })
@@ -37,6 +39,11 @@ export class Master implements OnInit  {
     this.getAllPaerentDepartments()
     this.getChildDepartments()
      
+  }
+
+  FilterSelectesDept(PId:number){
+    const childDept = this.originalChildList.filter(m=>m.parentDeptId==PId);
+    this.chaildDepartment.set(childDept);
   }
 
 

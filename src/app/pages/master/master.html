@@ -28,7 +28,7 @@
 					<span>03 teams</span>
 				</div>
                 @for (item of parentDepartments(); track $index) {
-                    <ul class="child-list">
+                    <ul class="child-list" (click)="FilterSelectesDept(item.departmentId)">
                         <li>
                             <span class="child-marker" aria-hidden="true">{{item.departmentId}}</span>
                             <span>
