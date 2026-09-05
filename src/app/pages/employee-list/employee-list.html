@@ -1,0 +1,157 @@
+<div class="employee-page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <div>
+      <h2>Employees</h2>
+      <p>Manage your organization's employees</p>
+    </div>
+
+    <button class="add-btn">
+      <span>+</span> Add Employee
+    </button>
+  </div>
+
+
+  <!-- Summary Cards -->
+  <div class="summary-grid">
+
+    <div class="summary-card">
+      <div class="summary-icon blue">♟</div>
+      <div>
+        <span>Total Employees</span>
+        <h3>128</h3>
+        <small class="success">↑ 12 this month</small>
+      </div>
+    </div>
+
+    <div class="summary-card">
+      <div class="summary-icon green">▦</div>
+      <div>
+        <span>Departments</span>
+        <h3>8</h3>
+        <small>Across the organization</small>
+      </div>
+    </div>
+
+    <div class="summary-card">
+      <div class="summary-icon purple">✓</div>
+      <div>
+        <span>Active Employees</span>
+        <h3>120</h3>
+        <small>Currently registered</small>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- Employee Directory -->
+  <div class="directory-card">
+
+    <div class="directory-header">
+      <div>
+        <h3>Employee Directory</h3>
+        <p>Manage and view all employees</p>
+      </div>
+
+      <div class="filter-area">
+        <div class="search-box">
+          <span>⌕</span>
+          <input
+            type="text"
+            placeholder="Search by name, email or contact...">
+        </div>
+
+        <select>
+          <option>All Departments</option>
+          <option>IT Department</option>
+          <option>HR Department</option>
+          <option>Finance</option>
+          <option>Marketing</option>
+        </select>
+      </div>
+    </div>
+
+
+    <!-- Table -->
+    <div class="table-wrapper">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>EMPLOYEE ID</th>
+            <th>EMPLOYEE</th>
+            <th>CONTACT</th>
+            <th>DEPARTMENT</th>
+            <th>GENDER</th>
+            <th>ROLE</th>
+            <th>CREATED DATE</th>
+            <th>ACTIONS</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+            @for(item of EmpListsignal();track $index){
+        <tr>
+            <td><strong>{{item.employeeId }}</strong></td>
+
+            <td>
+              <div class="employee-info">
+                <div class="avatar blue-bg">{{item.employeeName.charAt(1) }}</div>
+                <div>
+                  <strong>{{item.employeeName}}</strong>
+                  <small>{{item.emailId}}</small>
+                </div>
+              </div>
+            </td>
+
+            <td>
+              <div class="contact-info">
+                <span>{{item.contactNo}}</span>
+                 
+              </div>
+            </td>
+
+            <td><span class="badge it">{{item.deptId}}</span></td>
+            <td>{{item.gender}}</td>
+            <td><span class="badge admin">{{item.role}}</span></td>
+            <td>{{item.createdDate}}</td>
+
+            <td>
+              <div class="actions">
+                <button class="view">⌕</button>
+                <button class="edit">✎</button>
+                <button class="delete">⌫</button>
+              </div>
+            </td>
+          </tr>
+}
+
+          
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+    <!-- Pagination -->
+    <div class="pagination-footer">
+      <span>Showing <strong>5</strong> of <strong>128</strong> employees</span>
+
+      <div class="pagination">
+        <button>‹</button>
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>›</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>

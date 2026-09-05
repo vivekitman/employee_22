@@ -1,0 +1,81 @@
+<main class="department-page">
+	<header class="page-heading">
+		<div>
+			<p class="eyebrow">Organization directory</p>
+			<h1>Departments</h1>
+			<p class="intro">Browse departments and the teams nested within them.</p>
+		</div>
+		<div class="directory-count" aria-label="2 departments">
+			<strong>02</strong>
+			<span>Departments</span>
+		</div>
+	</header>
+
+	<section class="department-grid" aria-label="Department list">
+		<article class="department-card">
+			<div class="department-card__header">
+				<div class="department-logo" aria-hidden="true">EN</div>
+				<div>
+					<p class="card-label">Parent department</p>
+					<h2>Engineering</h2>
+					<p class="department-id">Department ID: 14212</p>
+				</div>
+			</div>
+
+			<div class="children-section">
+				<div class="children-heading">
+					<h3>Parendepartments</h3>
+					<span>03 teams</span>
+				</div>
+                @for (item of parentDepartments(); track $index) {
+                    <ul class="child-list" (click)="FilterSelectesDept(item.departmentId)">
+                        <li>
+                            <span class="child-marker" aria-hidden="true">{{item.departmentId}}</span>
+                            <span>
+                                
+                                <small> </small>
+                                <strong>{{item.departmentName}}</strong>
+                            </span>
+                        </li>
+                         
+                    </ul>
+                }
+				 
+			</div>
+		</article>
+
+		<article class="department-card department-card--amber">
+			<div class="department-card__header">
+				<div class="department-logo" aria-hidden="true">OP</div>
+				<div>
+					<p class="card-label">Parent department</p>
+					<h2>Operations</h2>
+					<p class="department-id">Department ID: 14213</p>
+				</div>
+			</div>
+
+			<div class="children-section">
+				<div class="children-heading">
+					<h3>Child departments</h3>
+					<span>02 teams</span>
+				</div>
+				<ul class="child-list">
+					  @for (item of chaildDepartment(); track $index) {
+                    <ul class="child-list">
+                        <li>
+                            <span class="child-marker" aria-hidden="true">{{item.childDeptId}}</span>
+                            <span>
+                                
+                                <small> </small>
+                                <strong>{{item.departmentName}}</strong>
+                            </span>
+                        </li>
+                         
+                    </ul>
+                }
+					 
+				</ul>
+			</div>
+		</article>
+	</section>
+</main>
